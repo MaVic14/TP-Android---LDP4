@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="bienvenido">Bienvenido al mundo de las apuestas</string>
+    <string name="titulo_programa">La ruleta</string>
+    <string name="usuario">Ingrese su usuario</string>
 </resources>
