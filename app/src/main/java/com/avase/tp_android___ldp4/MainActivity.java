@@ -1,16 +1,18 @@
 package com.avase.tp_android___ldp4;
 
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import 	android.content.Context;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnClickListener{
     private boolean mobileConnected=false;
     private boolean wifiConnected=false;
     @Override
@@ -20,11 +22,9 @@ public class MainActivity extends ActionBarActivity {
 
         //Chequeamos el tipo de conexion
         checkNetworkConnection();
-
-
+        TextView txt_usuario = (TextView) findViewById(R.id.textUser);
+        txt_usuario.setOnClickListener(this);
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -64,4 +64,14 @@ public class MainActivity extends ActionBarActivity {
             txt_tipo_de_conexion.setText(getString(R.string.tipo_de_conexion_sin_conexion));
         }
     }
-   }
+
+    @Override
+    public void onClick(View v) {
+        TextView txt_usuario = (TextView) findViewById(R.id.textUser);
+        if (txt_usuario.getText()==getString(R.string.usuario)) {
+            //TODO: Hacer que borre el campo al clickear
+            txt_usuario.setText(" ");
+
+        }
+    }
+}
