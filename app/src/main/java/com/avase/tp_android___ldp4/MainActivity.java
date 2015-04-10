@@ -4,14 +4,24 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import 	android.content.Context;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private boolean mobileConnected=false;
+    private boolean wifiConnected=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Chequeamos el tipo de conexion
+        checkNetworkConnection();
+
+
     }
 
 
@@ -36,4 +46,22 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+    private void checkNetworkConnection() {
+        // BEGIN_INCLUDE(connect)
+        ConnectivityManager connMgr =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeInfo = connMgr.getActiveNetworkInfo();
+        if (activeInfo != null && activeInfo.isConnected()) {
+            wifiConnected = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
+            mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+        }
+        TextView txt_tipo_de_conexion = (TextView) findViewById(R.id.tipo_de_conexion);
+        if (mobileConnected) {
+            txt_tipo_de_conexion.append(getString(R.string.tipo_de_conexion_datos));
+        } else if (wifiConnected) {
+            txt_tipo_de_conexion.append(getString(R.string.tipo_de_conexion_wifi));
+        } else {
+            txt_tipo_de_conexion.setText(getString(R.string.tipo_de_conexion_sin_conexion));
+        }
+    }
+   }

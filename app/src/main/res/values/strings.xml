@@ -6,4 +6,8 @@
     <string name="bienvenido">Bienvenido al mundo de las apuestas</string>
     <string name="titulo_programa">La ruleta</string>
     <string name="usuario">Ingrese su usuario</string>
+    <string name="tipo_de_conexion">El tipo de su conexion es:</string>
+    <string name="tipo_de_conexion_datos">Datos moviles</string>
+    <string name="tipo_de_conexion_wifi">Wifi</string>
+    <string name="tipo_de_conexion_sin_conexion">Sin conexion</string>
 </resources>
