@@ -71,7 +71,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
         if (txt_usuario.getText()==getString(R.string.usuario)) {
             //TODO: Hacer que borre el campo al clickear
             txt_usuario.setText(" ");
-
         }
     }
 }
