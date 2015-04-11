@@ -29,14 +29,32 @@
         android:layout_alignRight="@+id/textUser"
         android:layout_alignEnd="@+id/textUser" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tipo_de_conexion"
-        android:id="@+id/tipo_de_conexion"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="281dp" />
+        android:layout_below="@+id/textPassword"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sugerirNumero"
+            android:id="@+id/btn_sugerir_numero"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jugar"
+            android:id="@+id/btn_jugar"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp" />
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>
