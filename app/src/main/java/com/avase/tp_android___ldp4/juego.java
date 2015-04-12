@@ -1,6 +1,6 @@
 package com.avase.tp_android___ldp4;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Random;
 
-public class juego extends ActionBarActivity {
+public class juego extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
