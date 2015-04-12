@@ -48,10 +48,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jugar"
-            android:id="@+id/btn_jugar"
+            android:id="@+id/btn_abrirJuego"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="125dp" />
+            android:layout_marginTop="125dp"
+            android:onClick="inicarJuego"/>
 
     </LinearLayout>
 

@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".juego"
+            android:name="juego"
             android:label="@string/title_activity_juego" >
         </activity>
     </application>

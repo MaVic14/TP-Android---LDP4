@@ -21,6 +21,7 @@
     <string name="cuartoNumero">Cuarto Número:</string>
     <string name="quintoNumero">Quinto Número:</string>
     <string name="sextoNumero">Sexto Número:</string>
+    <string name="btnJugar">Jugar</string>
 
 
 </resources>
