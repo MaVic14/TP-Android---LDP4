@@ -1,29 +1,36 @@
 package com.avase.tp_android___ldp4;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.content.Intent;
 
 
-public class MainActivity extends ActionBarActivity implements OnClickListener{
+public class MainActivity extends Activity{
     private boolean mobileConnected=false;
     private boolean wifiConnected=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Chequeamos el tipo de conexion
-        checkNetworkConnection();
-        TextView txt_usuario = (TextView) findViewById(R.id.textUser);
-        txt_usuario.setOnClickListener(this);
+        this.findViewById(R.id.textUser).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView txt_usuario = (TextView) v;
+                if (txt_usuario.getText().equals(getString(R.string.usuario))) {
+                    txt_usuario.setText("");
+                }
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,6 +53,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void iniciarJuego(View v){
+
+        Intent intent = new Intent(v.getContext(), juego.class);
+        startActivity(intent);
+    }
+
+    /*
     private void checkNetworkConnection() {
         // BEGIN_INCLUDE(connect)
         ConnectivityManager connMgr =
@@ -63,14 +78,5 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
         } else {
             txt_tipo_de_conexion.setText(getString(R.string.tipo_de_conexion_sin_conexion));
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        TextView txt_usuario = (TextView) findViewById(R.id.textUser);
-        if (txt_usuario.getText()==getString(R.string.usuario)) {
-            //TODO: Hacer que borre el campo al clickear
-            txt_usuario.setText(" ");
-        }
-    }
+    }*/
 }
