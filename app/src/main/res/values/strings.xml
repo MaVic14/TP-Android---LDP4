@@ -22,6 +22,9 @@
     <string name="quintoNumero">Quinto Número:</string>
     <string name="sextoNumero">Sexto Número:</string>
     <string name="btnJugar">Jugar</string>
+    <string name="revisarNumeros">Revise lo números ingresados</string>
+    <string name="revisarRangoNumeros">Los números deben estar entre 0 y 36</string>
+    <string name="revisarRepeticionNumeros">Los números no pueden repetirse</string>
 
 
 </resources>

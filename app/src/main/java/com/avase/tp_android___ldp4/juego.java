@@ -7,6 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Random;
@@ -59,30 +62,46 @@ public class juego extends Activity {
         Numeros[5] = (String)((TextView)this.findViewById(R.id.txt_sextoNumero)).getText();
 
 
-        Set conjuntoNumeros = new HashSet<Integer>();
-        conjuntoNumeros.add(Integer.parseInt(Numeros[0]));
-
-        String numeroFinalUsuario = "";
-        String numeroFinalSorteado = "";
+        Set conjuntoNumerosUsuario = new HashSet<Integer>();
+        Set conjuntoNumerosSorteados = new HashSet<Integer>();
         Random random = new Random();
         for(int i = 1; i < 6; i++){
-            Integer numeroActual = Integer.parseInt(Numeros[i]);
-            if(conjuntoNumeros.contains(numeroActual)){
-                //TODO: Quejarse de numeros iguales
+            Integer numeroActual = null;
+            try {
+                numeroActual = Integer.parseInt(Numeros[i]);
+            }
+            catch(Exception e){
+                Toast.makeText(this.getBaseContext(), R.string.revisarNumeros, Toast.LENGTH_SHORT);
                 return;
             }
-            else{
-                conjuntoNumeros.add(numeroActual);
-                numeroFinalUsuario += Numeros[i];
-                numeroFinalSorteado += String.valueOf(random.nextInt(10));
+
+            if(numeroActual < 0 || numeroActual > 36){
+                Toast.makeText(this.getBaseContext(), R.string.revisarRangoNumeros, Toast.LENGTH_SHORT);
+                return;
+            }
+
+            if(conjuntoNumerosUsuario.contains(numeroActual)){
+                Toast.makeText(this.getBaseContext(), R.string.revisarRepeticionNumeros, Toast.LENGTH_SHORT);
+                return;
+            }
+
+           conjuntoNumerosUsuario.add(numeroActual);
+           conjuntoNumerosSorteados.add(random.nextInt(36));
+        }
+
+        Integer cantidadNumerosAcertados = 0;
+        Iterator it = conjuntoNumerosUsuario.iterator();
+        while(it.hasNext()){
+            if(conjuntoNumerosSorteados.contains(it.next())){
+                cantidadNumerosAcertados++;
             }
         }
 
-        if(numeroFinalUsuario.equals(numeroFinalSorteado)){
+        if(cantidadNumerosAcertados > 0){
             //TODO: ganó!
         }
         else{
-            //TODO: perdió...
+            //TODO: perdió!
         }
 
     }

@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_primerNumero"
             android:layout_weight="1" />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_segundoNumero"
             android:layout_weight="1" />
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_tercerNumero"
             android:layout_weight="1" />
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_cuartoNumero"
             android:layout_weight="1" />
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_quintoNumero"
             android:layout_weight="1" />
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:editable="true"
-            android:maxLength="1"
+            android:maxLength="2"
             android:ems="10"
             android:id="@+id/txt_sextoNumero"
             android:layout_weight="1" />
