@@ -25,6 +25,12 @@
     <string name="revisarNumeros">Revise lo números ingresados</string>
     <string name="revisarRangoNumeros">Los números deben estar entre 0 y 36</string>
     <string name="revisarRepeticionNumeros">Los números no pueden repetirse</string>
+    <string name="errorNoIngresoUsuario">Ingrese su nombre de usuario</string>
+    <string name="numeroSugerido">Número sugerido:</string>
+    <string name="felicidades">Felicitaciones</string>
+    <string name="gano">Ganaste! acertaste a</string>
+    <string name="numeros">números</string>
+    <string name="perdio">Perdiste. No acertaste a ningún número.</string>
 
 
 </resources>

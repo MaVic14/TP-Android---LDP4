@@ -1,6 +1,7 @@
 package com.avase.tp_android___ldp4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ import java.util.Random;
 
 public class juego extends Activity {
 
+    private String usuario = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,9 @@ public class juego extends Activity {
                 ( (juego)v.getParent() ).jugar();
             }
         });
+
+        Intent intent = getIntent();
+        this.usuario = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
     }
 
 
@@ -86,7 +92,7 @@ public class juego extends Activity {
             }
 
            conjuntoNumerosUsuario.add(numeroActual);
-           conjuntoNumerosSorteados.add(random.nextInt(36));
+           conjuntoNumerosSorteados.add(random.nextInt(37)); //next int 37 devuelve un entero del rango [0;37)
         }
 
         Integer cantidadNumerosAcertados = 0;
@@ -98,10 +104,13 @@ public class juego extends Activity {
         }
 
         if(cantidadNumerosAcertados > 0){
-            //TODO: ganó!
+            Toast.makeText(this.getBaseContext(),
+                           R.string.felicidades + " " + this.usuario +
+                           ": " + R.string.gano + String.valueOf(cantidadNumerosAcertados) + " " + R.string.numeros,
+                           Toast.LENGTH_LONG);
         }
         else{
-            //TODO: perdió!
+            Toast.makeText(this.getBaseContext(), R.string.perdio, Toast.LENGTH_SHORT);
         }
 
     }

@@ -11,11 +11,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.content.Intent;
+import android.widget.Toast;
+
+import java.util.Random;
 
 
 public class MainActivity extends Activity{
-    private boolean mobileConnected=false;
-    private boolean wifiConnected=false;
+
+    public final static String EXTRA_MESSAGE = "com.avase.tp_android___ldp4.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,13 @@ public class MainActivity extends Activity{
                 if (txt_usuario.getText().equals(getString(R.string.usuario))) {
                     txt_usuario.setText("");
                 }
+            }
+        });
+        this.findViewById(R.id.btn_sugerir_numero).setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Random random = new Random();
+                Toast.makeText(v.getContext(), R.string.numeroSugerido + " " + String.valueOf(random.nextInt(37)), Toast.LENGTH_SHORT);
             }
         });
     }
@@ -56,7 +66,13 @@ public class MainActivity extends Activity{
 
     public void iniciarJuego(View v){
 
+        if( ((TextView)findViewById(R.id.textUser)).getText().toString().equals(R.string.usuario)){
+            Toast.makeText(this.getBaseContext(), R.string.errorNoIngresoUsuario, Toast.LENGTH_SHORT);
+            return;
+        }
+
         Intent intent = new Intent(v.getContext(), juego.class);
+        intent.putExtra(EXTRA_MESSAGE, ((TextView)findViewById(R.id.textUser)).getText());
         startActivity(intent);
     }
 
